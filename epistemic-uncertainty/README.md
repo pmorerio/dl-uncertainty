@@ -35,3 +35,12 @@ tensorboard --logdir logs/
 
 ###  Results
 
+*Real Images*
+![images](./pics/0.png)
+
+*Generated images*
+![images](./pics/1.png)
+
+*Log Variance*
+![images](./pics/3.png)
+
