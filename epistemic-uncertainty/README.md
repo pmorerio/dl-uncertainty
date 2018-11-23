@@ -1,5 +1,5 @@
 ## Epistemic Uncertainty
-Should be implemented with dropout at teat time.
+Should be implemented with dropout at test time. I am sampling 10 nets here.
 
 ### Code
 
