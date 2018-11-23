@@ -28,7 +28,7 @@ class Model(object):
 		    net = slim.conv2d(net, 128, 5, scope='conv2')
 		    net = slim.max_pool2d(net, 2, stride=2, scope='pool2')
 		    net = tf.contrib.layers.flatten(net)
-		    net = slim.dropout(net, 0.5, is_training=is_training)
+		    #~ net = slim.dropout(net, 0.5, is_training=is_training)
 		    net = slim.fully_connected(net, 1024, activation_fn=tf.nn.relu, scope='fc3')
 		    net = slim.dropout(net, 0.5, is_training=is_training)
 		    net = slim.fully_connected(net, self.hidden_repr_size, activation_fn=tf.tanh,scope='fc4')
