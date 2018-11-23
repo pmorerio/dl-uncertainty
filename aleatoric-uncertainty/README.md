@@ -1,4 +1,4 @@
-## Uncertainty
+## Aleatoric Uncertainty
 I tried to implement the loss of eq (8) from: A Kendall, Y Gal, “**What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?**”, NIPS 2017 [arXiv](https://arxiv.org/abs/1703.04977)
 
 #### WARNING
