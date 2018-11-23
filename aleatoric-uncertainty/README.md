@@ -48,5 +48,4 @@ tensorboard --logdir logs/
 *Log Variance*
 ![images](./pics/3.png)
 
-## License
-This repository is released under the MIT LICENSE.
+
