@@ -41,6 +41,6 @@ tensorboard --logdir logs/
 *Generated images*
 ![images](./pics/1.png)
 
-*Log Variance*
+*Variance*
 ![images](./pics/3.png)
 
