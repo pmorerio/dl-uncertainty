@@ -8,7 +8,7 @@ import os
 
 class Solver(object):
 
-    def __init__(self, model, batch_size=128, train_iter=100000, 
+    def __init__(self, model, batch_size=128, train_iter=10001, 
 		    mnist_dir='mnist', log_dir='logs',
 		    model_save_path='model', trained_model='model/model'):
         
@@ -105,10 +105,10 @@ class Solver(object):
 		       
 		feed_dict = {self.model.images: images[i*self.batch_size:(i+1)*self.batch_size]}  
 
-		summary, l,  = sess.run([self.model.summary_op, self.model.loss], feed_dict)
+		summary  = sess.run(self.model.summary_op, feed_dict)
 		summary_writer.add_summary(summary, i)
-		print ('Batch: [%d/%d]  loss: [%.6f] ' \
-			   %(i, num_batches, l))
+		print ('Batch: [%d/%d]  ' \
+			   %(i, num_batches))
 
 		    
 if __name__=='__main__':
