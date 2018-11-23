@@ -8,7 +8,7 @@ import os
 
 class Solver(object):
 
-    def __init__(self, model, batch_size=128, train_iter=10001, 
+    def __init__(self, model, batch_size=128, train_iter=30001, 
 		    mnist_dir='mnist', log_dir='logs',
 		    model_save_path='model', trained_model='model/model'):
         
@@ -73,7 +73,7 @@ class Solver(object):
 		
 		sess.run(self.model.train_op, feed_dict) 
 
-		if t%100==0 or t==1:
+		if t%500==0 or t==1:
 
 		    summary, l,  = sess.run([self.model.summary_op, self.model.loss], feed_dict)
 		    summary_writer.add_summary(summary, t)
