@@ -78,11 +78,13 @@ class Model(object):
 	
 	# summary op
 	loss_summary = tf.summary.scalar('loss', self.loss)
+	log_var_summary = tf.summary.scalar('mean_log_var', tf.reduce_mean(self.std))
 	image_summary = tf.summary.image('images', self.images)
 	rec_image_summary = tf.summary.image('rec_images', self.mean)
 	uncertainty_summary = tf.summary.image('uncertainty', self.std)
 	
 	self.summary_op = tf.summary.merge([loss_summary, \
+					    log_var_summary, \
 					    image_summary, \
 					    rec_image_summary, \
 					    uncertainty_summary])
