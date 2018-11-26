@@ -48,7 +48,7 @@ class Model(object):
 		    net = slim.dropout(net, 0.5, is_training=is_training)
 		    mean = slim.conv2d_transpose(net, 256, [3, 3], scope='conv_transpose2_mean')   # (batch_size, 14, 14, 128)
 		    mean = slim.batch_norm(mean, scope='bn2_gen_mean')
-		    mean = slim.conv2d_transpose(mean, 1, [3, 3], activation_fn=tf.tanh, scope='conv_transpose3_mean')   # (batch_size, 28, 28, 1)
+		    mean = slim.conv2d_transpose(mean, 1, [3, 3], activation_fn=None, scope='conv_transpose3_mean')   # (batch_size, 28, 28, 1)
 		    
 	return mean
     
