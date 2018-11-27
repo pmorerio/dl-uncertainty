@@ -12,7 +12,7 @@ class Model(object):
 	self.learning_rate = learning_rate
 	self.hidden_repr_size = hidden_size
 	self.batch_size = batch_size
-	self.test_trials = 10
+	self.test_trials = 20
     
 		    
     def EncoderDecoder(self, images, is_training = True, reuse=False):
