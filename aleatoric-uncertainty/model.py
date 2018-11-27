@@ -6,7 +6,7 @@ import numpy as np
 
 class Model(object):
 
-    def __init__(self, mode='train', hidden_size = 128, learning_rate=0.0001, batch_size=128):
+    def __init__(self, mode='train', hidden_size = 128, learning_rate=0.0003, batch_size=128):
         
 	self.mode=mode
 	self.learning_rate = learning_rate

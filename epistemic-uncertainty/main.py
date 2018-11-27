@@ -19,7 +19,7 @@ def main(_):
 		tf.gfile.MakeDirs(model_save_path)
 	log_dir = 'logs/'+ model_save_path
 	
-	model = Model(learning_rate=0.0001, mode=FLAGS.mode)
+	model = Model(learning_rate=0.0003, mode=FLAGS.mode)
 	solver = Solver(model, model_save_path=model_save_path, log_dir=log_dir)
 	
 	# create directory if it does not exist

@@ -71,13 +71,16 @@ class Model(object):
 	    self.rec_images = tf.expand_dims(self.rec_images,0)
 	    for i in range(self.test_trials):
 		self.rec_images = tf.concat([self.rec_images, tf.expand_dims( self.EncoderDecoder(self.images, reuse=True), 0)[0] ], axis=0 )
-	    self.mean, self.var = tf.nn.moments(self.rec_images, axes=[0])
+	    _ , self.var = tf.nn.moments(self.rec_images, axes=[0])
+	    
+	    # 1 forward pass with no dropout for aleatoric_uncertainty
+	    self.rec_images2, self.log_var2 = self.EncoderDecoder(self.images, is_training=False)
 	    
 	    # summary op
 	    image_summary = tf.summary.image('images', self.images)
-	    rec_image_summary = tf.summary.image('rec_images_mean', self.mean)
+	    rec_image_summary = tf.summary.image('rec_images_mean', self.rec_images2)
+	    uncertainty_summary = tf.summary.image('aleatoric_uncertainty', self.log_var2)
 	    var_summary = tf.summary.image('epistemic_uncertaintiy', self.var)
-	    uncertainty_summary = tf.summary.image('aleatoric_uncertainty', self.log_var) #first trial only? should I average it over self.test_trials ?
 	    
 	    self.summary_op = tf.summary.merge([image_summary, \
 						rec_image_summary, \
