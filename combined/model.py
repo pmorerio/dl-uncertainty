@@ -6,7 +6,7 @@ import numpy as np
 
 class Model(object):
 
-    def __init__(self, mode='train', hidden_size = 128, learning_rate=0.0001, batch_size=128):
+    def __init__(self, mode='train', hidden_size = 128, learning_rate=0.0003, batch_size=128):
         
 	self.mode=mode
 	self.learning_rate = learning_rate
@@ -103,7 +103,7 @@ class Model(object):
 	    log_var_summary = tf.summary.scalar('loss_term_2', self.loss2)
 	    image_summary = tf.summary.image('images', self.images)
 	    rec_image_summary = tf.summary.image('rec_images', self.rec_images)
-	    uncertainty_summary = tf.summary.image('uncertainty', self.log_var)
+	    uncertainty_summary = tf.summary.image('aleatoric_uncertainty', self.log_var)
 	    
 	    self.summary_op = tf.summary.merge([loss_summary, \
 						mean_summary, \
