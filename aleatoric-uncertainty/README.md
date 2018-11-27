@@ -8,8 +8,6 @@ I tried to implement the loss of eq (8) from: A Kendall, Y Gal, “**What Uncert
 
 ### Code
 
-Download MNIST:
-
 Train an autoencoder:
 
 `
