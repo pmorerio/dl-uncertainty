@@ -3,7 +3,6 @@ Section 3. of the paper: A Kendall, Y Gal, “**What Uncertainties Do We Need in
 
 Combines th loss of eq (8) and dropout at test time.
 
-
 ### Code
 
 Train an autoencoder:
@@ -23,6 +22,10 @@ Visualize TensorBoard logs:
 `
 tensorboard --logdir logs/
 `
+
+
+### Notes
+Because of (more) dropout at training time, convergence is slower than for `aleatoric-uncertainty`
 
 ###  Results
 
