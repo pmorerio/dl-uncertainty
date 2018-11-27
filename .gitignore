@@ -1,5 +1,6 @@
 */model*/*
 */*logs/*
 *.pyc
+mnist/*
 */mnist/*
 *.txt

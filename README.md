@@ -5,5 +5,21 @@ A Kendall, Y Gal, “**What Uncertainties Do We Need in Bayesian Deep Learning f
 
 This is __NOT__ the official repo. It is just based on my understanding of the paper.
 
+I am training a simple autoencoder (regression) to reconstruct MNIST digits.
+
+### Getting MNIST
+
+Download MNIST:
+
+`
+./download.sh
+`
+
+Rescale and save in a python dictionary (possibly resize):
+
+`
+python prepro.py
+`
+
 ## License
 This repository is released under the MIT LICENSE.

@@ -3,18 +3,6 @@ Should be implemented with dropout at test time. I am sampling 10 nets here.
 
 ### Code
 
-Download MNIST:
-
-`
-./download.sh
-`
-
-Rescale and save in a python dictionary (possibly resize):
-
-`
-python prepro.py
-`
-
 Train an autoencoder:
 
 `
