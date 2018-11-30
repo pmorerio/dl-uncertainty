@@ -14,7 +14,7 @@ python main.py --mode train
 Test it:
 
 `
-python main.py --mode test --checkpoint model/model
+python main.py --mode test --checkpoint model/model0
 `
 
 Visualize TensorBoard logs:
@@ -23,11 +23,25 @@ Visualize TensorBoard logs:
 tensorboard --logdir logs/
 `
 
-
-### Notes
-Because of (more) dropout at training time, convergence is slower than for `aleatoric-uncertainty`
-
 ###  Results
 
+*Real Images*
 
+![images](./pics/combined_real.png)
+
+*Generated images*
+
+![images](./pics/combined_generated.png)
+
+*Aleatoric Uncertainty*
+
+![images](./pics/combined_aleatoric.png)
+
+*Epistemic Uncertainty*
+
+![images](./pics/combined_epistemic.png)
+
+*L2 reconstruction error*
+
+![images](./pics/combined_rec_error_L2.png)
 

@@ -1,5 +1,5 @@
 ## Epistemic Uncertainty
-Should be implemented with dropout at test time. I am sampling 10 nets here.
+Should be implemented with dropout at test time. I am sampling 20 nets here.
 
 ### Code
 
@@ -12,7 +12,7 @@ python main.py --mode train
 Test it:
 
 `
-python main.py --mode test --checkpoint model/model
+python main.py --mode test --checkpoint model/model0
 `
 
 Visualize TensorBoard logs:
