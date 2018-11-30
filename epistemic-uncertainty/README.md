@@ -24,11 +24,11 @@ tensorboard --logdir logs/
 ###  Results
 
 *Real Images*
-![images](./pics/0.png)
+![images](./pics/epistemic_real.png)
 
 *Generated images*
-![images](./pics/1.png)
+![images](./pics/epistemic_generated.png)
 
 *Variance*
-![images](./pics/3.png)
+![images](./pics/epistemic_uncertainty.png)
 
