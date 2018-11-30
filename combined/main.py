@@ -6,7 +6,7 @@ flags = tf.app.flags
 flags.DEFINE_string('mode', 'train', "'train', or 'test'")
 flags.DEFINE_string('model_save_path', 'model0', "base directory for saving the models")
 flags.DEFINE_string('device', '/gpu:0', "/gpu:id number")
-flags.DEFINE_string('checkpoint', 'None', "Model checkpoint to be tested")
+flags.DEFINE_string('checkpoint', './model/model0/model', "Model checkpoint to be tested")
 FLAGS = flags.FLAGS
 
 def main(_):

@@ -80,13 +80,17 @@ class Model(object):
 	    # summary op
 	    image_summary = tf.summary.image('images', self.images)
 	    rec_image_summary = tf.summary.image('rec_images', self.rec_images2)
-	    uncertainty_summary = tf.summary.image('aleatoric_uncertainty', tf.exp(self.log_var2))
-	    var_summary = tf.summary.image('epistemic_uncertaintiy', self.var)
+	    aleatoric_summary = tf.summary.image('aleatoric_uncertainty', tf.exp(self.log_var2))
+	    epistemic_summary = tf.summary.image('epistemic_uncertaintiy', self.var)
+	    var_summary = tf.summary.image('reconstruction error (L2)', tf.square(self.rec_images2 - self.images))
+	    scaled_var_summary = tf.summary.image('scaled reconstruction error (L2/var)', tf.square(self.rec_images2 - self.images)/tf.exp(self.log_var2) )
 	    
 	    self.summary_op = tf.summary.merge([image_summary, \
 						rec_image_summary, \
+						aleatoric_summary, \
+						epistemic_summary, \
 						var_summary,\
-						uncertainty_summary])
+						scaled_var_summary])
 
 	if self.mode == 'train':
 	    # loss
