@@ -36,7 +36,7 @@ tensorboard --logdir logs/
 
 ![images](./pics/aleatoric_generated.png)
 
-*Log Variance*
+*Variance*
 
 ![images](./pics/aleatoric_uncertainty.png)
 
