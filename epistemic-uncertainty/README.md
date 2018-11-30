@@ -12,7 +12,7 @@ python main.py --mode train
 Test it:
 
 `
-python main.py --mode test --checkpoint model/model
+python main.py --mode test --checkpoint model/model0
 `
 
 Visualize TensorBoard logs:
