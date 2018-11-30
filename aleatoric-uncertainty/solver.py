@@ -8,7 +8,7 @@ import os
 
 class Solver(object):
 
-    def __init__(self, model, batch_size=128, train_iter=250000, 
+    def __init__(self, model, batch_size=128, train_iter=500000, 
 		    mnist_dir='../mnist', log_dir='logs',
 		    model_save_path='model', trained_model='model/model'):
         

@@ -60,9 +60,7 @@ class Model(object):
 			log_var = slim.conv2d_transpose(log_var, 64, [3, 3],  scope='conv_transpose_out_log_var')   # (batch_size, 28, 28, 64)
 			log_var = slim.batch_norm(log_var, scope='bn3_log_var')
 			log_var = slim.conv2d(log_var, 3, [3, 3], scope='conv_out_log_var')   # (batch_size, 28, 28, 3)
-			
-
-		    
+					    
 	return mean, log_var
     
 		    
@@ -90,7 +88,7 @@ class Model(object):
 	log_var_summary = tf.summary.scalar('loss2', self.loss2)
 	image_summary = tf.summary.image('images', self.images)
 	rec_image_summary = tf.summary.image('rec_images', self.mean)
-	uncertainty_summary = tf.summary.image('uncertainty', tf.exp(self.log_var))
+	uncertainty_summary = tf.summary.image('aleatoric_uncertainty', tf.exp(self.log_var))
 	
 	self.summary_op = tf.summary.merge([loss_summary, \
 					    mean_summary, \
