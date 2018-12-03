@@ -8,8 +8,8 @@ import os
 
 class Solver(object):
 
-    def __init__(self, model, batch_size=128, train_iter=500000, 
-		    mnist_dir='../mnist', log_dir='logs',
+    def __init__(self, model, batch_size=128, train_iter=10000000, 
+		    mnist_dir='../mnist', training_size=55000, log_dir='logs',
 		    model_save_path='model', trained_model='model/model'):
         
         self.model = model
@@ -19,6 +19,7 @@ class Solver(object):
         self.batch_size = batch_size
         self.train_iter = train_iter
 	self.mnist_dir = mnist_dir
+	self.training_size = training_size
         self.log_dir = log_dir
         self.model_save_path = model_save_path
         self.trained_model = model_save_path + '/model'
@@ -37,8 +38,10 @@ class Solver(object):
         images = mnist['X'] / 127.5 - 1
         labels = mnist['y']
 	
-        return images, np.squeeze(labels).astype(int)
-	
+	if split == 'train':
+	    return images[:self.training_size], np.squeeze(labels).astype(int)[:self.training_size]
+	elif split == 'test':
+	    return images, np.squeeze(labels).astype(int)
 	
     def train(self):
 	

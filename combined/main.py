@@ -7,6 +7,7 @@ flags.DEFINE_string('mode', 'train', "'train', or 'test'")
 flags.DEFINE_string('model_save_path', 'model0', "base directory for saving the models")
 flags.DEFINE_string('device', '/gpu:0', "/gpu:id number")
 flags.DEFINE_string('checkpoint', './model/model0/model', "Model checkpoint to be tested")
+flags.DEFINE_string('training_size', '55000', "How much data to be used for training")
 FLAGS = flags.FLAGS
 
 def main(_):
@@ -20,7 +21,10 @@ def main(_):
 	log_dir = 'logs/'+ model_save_path
 	
 	model = Model(learning_rate=0.0003, mode=FLAGS.mode)
-	solver = Solver(model, model_save_path=model_save_path, log_dir=log_dir)
+	solver = Solver(model, model_save_path=model_save_path, 
+					log_dir=log_dir, 
+					training_size=int(FLAGS.training_size)
+					)
 	
 	# create directory if it does not exist
 	if not tf.gfile.Exists(model_save_path):
