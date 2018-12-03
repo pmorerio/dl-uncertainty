@@ -8,7 +8,7 @@ import os
 
 class Solver(object):
 
-    def __init__(self, model, batch_size=128, train_iter=10000000, 
+    def __init__(self, model, batch_size=128, train_iter=1000000, 
 		    mnist_dir='../mnist', training_size=55000, log_dir='logs',
 		    model_save_path='model', trained_model='model/model'):
         
@@ -37,6 +37,9 @@ class Solver(object):
             mnist = pickle.load(f)
         images = mnist['X'] / 127.5 - 1
         labels = mnist['y']
+	
+	#~ images = images[np.where(labels!=0)]
+	#~ labels = labels[np.where(labels!=0)]
 	
 	if split == 'train':
 	    return images[:self.training_size], np.squeeze(labels).astype(int)[:self.training_size]
@@ -96,6 +99,7 @@ class Solver(object):
 	    variables_to_restore = slim.get_model_variables(scope='encoder')
 	    variables_to_restore += slim.get_model_variables(scope='decoder')
 	    restorer = tf.train.Saver(variables_to_restore)
+	    print '[*] Loading '+ checkpoint
 	    restorer.restore(sess, checkpoint)
 	    
             summary_writer = tf.summary.FileWriter(logdir=self.log_dir+'/test', graph=tf.get_default_graph())
