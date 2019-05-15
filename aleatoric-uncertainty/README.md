@@ -4,7 +4,7 @@ I tried to implement the loss of eq (8) from: A Kendall, Y Gal, “**What Uncert
 #### WARNING
   - From the paper: 'In practice, we train the network to predict the log variance' (numerical stability)
   - I get `Nan` if `log_var` is unbounded (`relu` or `None` activations). Here I am using scaled `tanh` activation.
-  - **EDIT** `None` activation in *both* mean and `log_var` branches seems to do the job
+  - **EDIT** `None` activation in *both* `mean` and `log_var` branches seems to do the job
 
 ### Code
 
