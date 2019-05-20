@@ -17,7 +17,7 @@ python main.py --mode train
 Test it:
 
 `
-python main.py --mode test --checkpoint model/model0
+python main.py --mode test --checkpoint model/model0/model
 `
 
 Visualize TensorBoard logs:
